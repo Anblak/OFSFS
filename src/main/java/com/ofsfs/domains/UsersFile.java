@@ -10,13 +10,15 @@ public class UsersFile {
     @Column(name = "file_id")
     private Long id;
 
+    private String path;
+
     private String name;
 
     private String type;
 
     private String fileSize;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Directory directory;
 
     public UsersFile() {
@@ -60,5 +62,13 @@ public class UsersFile {
 
     public void setDirectory(Directory directory) {
         this.directory = directory;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

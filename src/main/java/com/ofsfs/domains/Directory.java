@@ -12,8 +12,6 @@ public class Directory {
     @Column(name = "directory_id")
     private Long id;
 
-    private String path;
-
     private String name;
 
     private Double fileMaxSize;
@@ -25,6 +23,9 @@ public class Directory {
 
     @OneToMany(mappedBy = "directory")
     private List<UsersFile> usersFiles;
+
+    @OneToMany(mappedBy = "directory")
+    private List<User> user;
 
     public Directory() {
     }
@@ -69,19 +70,19 @@ public class Directory {
         this.usersFiles = usersFiles;
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     public DirectoryType getDirectoryType() {
         return directoryType;
     }
 
     public void setDirectoryType(DirectoryType directoryType) {
         this.directoryType = directoryType;
+    }
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
     }
 }
