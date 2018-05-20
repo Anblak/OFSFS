@@ -10,6 +10,8 @@ public class Directory {
     @Column(name = "directory_id")
     private Long id;
 
+    private String path;
+
     private String name;
 
     private Double fileMaxSize;
@@ -60,5 +62,13 @@ public class Directory {
 
     public void setUsersFiles(List<UsersFile> usersFiles) {
         this.usersFiles = usersFiles;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
