@@ -19,7 +19,7 @@ public class User {
     private String phoneNumber;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Directory directory;
+    private Group group;
 
     public User() {
     }
@@ -57,36 +57,13 @@ public class User {
     }
 
 
-    public Directory getDirectory() {
-        return directory;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setDirectory(Directory directory) {
-        this.directory = directory;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (account != null ? !account.equals(user.account) : user.account != null) return false;
-        if (fullName != null ? !fullName.equals(user.fullName) : user.fullName != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(user.phoneNumber) : user.phoneNumber != null) return false;
-        return directory != null ? directory.equals(user.directory) : user.directory == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (account != null ? account.hashCode() : 0);
-        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (directory != null ? directory.hashCode() : 0);
-        return result;
-    }
 }

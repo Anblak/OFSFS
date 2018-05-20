@@ -32,8 +32,9 @@ public class UserServiceImpl implements UserService {
         String uuid = UUID.randomUUID().toString();
         user.getAccount().setPassword(encoder.encode(user.getAccount().getPassword()));
         user.getAccount().setUuid(uuid);
+        user.getAccount().setEnabled(true);
         userRepository.save(user);
-        mailSenderService.sendMail("theme","link"+ uuid, user.getAccount().getUsername());
+//        mailSenderService.sendMail("theme","link"+ uuid, user.getAccount().getUsername());
     }
 
     @Override

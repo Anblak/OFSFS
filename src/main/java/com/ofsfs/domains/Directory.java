@@ -24,8 +24,8 @@ public class Directory {
     @OneToMany(mappedBy = "directory")
     private List<UsersFile> usersFiles;
 
-    @OneToMany(mappedBy = "directory")
-    private List<User> user;
+    @ManyToOne
+    private Group group;
 
     public Directory() {
     }
@@ -78,11 +78,11 @@ public class Directory {
         this.directoryType = directoryType;
     }
 
-    public List<User> getUser() {
-        return user;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setUser(List<User> user) {
-        this.user = user;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

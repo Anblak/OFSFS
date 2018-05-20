@@ -29,6 +29,6 @@ public class DirectoryController {
     @GetMapping("/directory/main")
     @ResponseStatus(HttpStatus.OK)
     public List<Directory> loadMainDirectories(){
-        return null; //TODO ))00))0)0))0
+        return directoryService.loadMainDirectories();
     }
 }
