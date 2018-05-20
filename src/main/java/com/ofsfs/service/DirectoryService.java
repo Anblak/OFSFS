@@ -4,9 +4,9 @@ import com.ofsfs.domains.Directory;
 
 public interface DirectoryService {
 
-    void create(Directory directory);
+    void save(Directory directory);
 
-    void update(Directory directory);
+//    void update(Directory directory);
 
     void delete(Long id);
 }
