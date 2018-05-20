@@ -1,6 +1,7 @@
 package com.ofsfs.service.impl;
 
 import com.ofsfs.domains.User;
+import com.ofsfs.domains.enums.AccountRole;
 import com.ofsfs.repository.AccountRepository;
 import com.ofsfs.repository.UserRepository;
 import com.ofsfs.service.MailSenderService;
@@ -33,6 +34,7 @@ public class UserServiceImpl implements UserService {
         user.getAccount().setPassword(encoder.encode(user.getAccount().getPassword()));
         user.getAccount().setUuid(uuid);
         user.getAccount().setEnabled(true);
+        user.getAccount().setAccountRole(AccountRole.USER_ROLE);
         userRepository.save(user);
 //        mailSenderService.sendMail("theme","link"+ uuid, user.getAccount().getUsername());
     }
