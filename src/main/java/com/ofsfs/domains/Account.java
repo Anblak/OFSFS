@@ -30,6 +30,8 @@ public class Account implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
+    private String uuid;
+
     private boolean enabled;
 
     public Account() {
@@ -78,8 +80,9 @@ public class Account implements UserDetails {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public Account setEnabled(boolean enabled) {
         this.enabled = enabled;
+        return this;
     }
 
     public Long getId() {
@@ -118,5 +121,13 @@ public class Account implements UserDetails {
         result = 31 * result + password.hashCode();
         result = 31 * result + (enabled ? 1 : 0);
         return result;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

@@ -1,5 +1,7 @@
 package com.ofsfs.domains;
 
+import com.ofsfs.domains.enums.DirectoryType;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class Directory {
     private Double fileMaxSize;
 
     private Double directoryMaxSize;
+
+    @Enumerated(EnumType.STRING)
+    private DirectoryType directoryType;
 
     @OneToMany(mappedBy = "directory")
     private List<UsersFile> usersFiles;
@@ -70,5 +75,13 @@ public class Directory {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public DirectoryType getDirectoryType() {
+        return directoryType;
+    }
+
+    public void setDirectoryType(DirectoryType directoryType) {
+        this.directoryType = directoryType;
     }
 }
