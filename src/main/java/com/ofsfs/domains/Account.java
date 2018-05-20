@@ -1,7 +1,7 @@
 package com.ofsfs.domains;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ofsfs.domains.enums.UserRole;
+import com.ofsfs.domains.enums.AccountRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +28,7 @@ public class Account implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private UserRole userRole;
+    private AccountRole accountRole;
 
     private String uuid;
 
@@ -39,7 +39,7 @@ public class Account implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<>(Collections.singletonList(new SimpleGrantedAuthority(userRole.name())));
+        return new ArrayList<>(Collections.singletonList(new SimpleGrantedAuthority(accountRole.name())));
     }
 
     @Override
@@ -93,12 +93,12 @@ public class Account implements UserDetails {
         this.id = id;
     }
 
-    public UserRole getUserRole() {
-        return userRole;
+    public AccountRole getAccountRole() {
+        return accountRole;
     }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
+    public void setAccountRole(AccountRole accountRole) {
+        this.accountRole = accountRole;
     }
 
     @Override

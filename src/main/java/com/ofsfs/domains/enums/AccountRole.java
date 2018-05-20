@@ -1,5 +1,5 @@
 package com.ofsfs.domains.enums;
 
-public enum UserRole {
+public enum AccountRole {
     USER_ROLE, ADMIN_ROLE
 }
